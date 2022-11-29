@@ -31,9 +31,12 @@ const Home = () => {
 
     return (
         <div>
-            {category.map(categories => (
-                <Button key={categories.id} variant="primary" onClick={() => dispatch(filterProductsThunk(categories.id))}>{categories.name}</Button>
-            ))}
+            <div className='btnsearch'>
+                {category.map(categories => (
+                    <Button key={categories.id} variant="primary" onClick={() => dispatch(filterProductsThunk(categories.id))}>{categories.name}</Button>
+                ))}
+            </div>
+
             <InputGroup className="mb-3">
                 <Form.Control
                     placeholder="Recipient's username"
@@ -44,28 +47,40 @@ const Home = () => {
                     onChange={e => setInputSearch(e.target.value)}
                 />
                 <Button variant="outline-secondary" id="button-addon2"
-                onClick={() => dispatch(filterHeadThunk(inputSearch))}>
+                    onClick={() => dispatch(filterHeadThunk(inputSearch))}>
                     Search
                 </Button>
             </InputGroup>
-            {dataProducts.map(product => (
-                <li key={product.id}>
-                    <Link to={`/product/${product.id}`}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={product.productImgs?.[0]} />
-                            <Card.Body>
-                                <Card.Title>{product.title}</Card.Title>
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroup.Item>
-                                    <p>Price</p>
-                                    <p>{product.price}</p>
-                                </ListGroup.Item>
-                            </ListGroup>
-                        </Card>
-                    </Link>
-                </li>
-            ))}
+            <div className='cardli'>
+                {dataProducts.map(product => (
+                    <li key={product.id} className='lihome' >
+                        <div className='product-card'>
+                            <Link to={`/product/${product.id}`}>
+                                <div className='image'>
+                                    <img src={product.productImgs?.[0]} alt="" className='over' />
+                                </div>
+                                <div className='info'>
+                                    <span className='brand'>
+                                    </span>
+                                    <strong>
+                                        {product.title}
+                                    </strong>
+                                    <span className='price'>
+                                        Price
+                                    </span>
+                                    <span className='amount'>
+                                        {product.price}
+                                    </span>
+                                </div>
+                            </Link>
+                            <button className='card-button'>
+
+                            </button>
+                        </div>
+                    </li>
+                ))}
+            </div>
+
         </div>
     );
 };

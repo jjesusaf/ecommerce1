@@ -20,41 +20,52 @@ const ProductDetail = () => {
 
     const relatedProducts = productsList.filter(productItem => productItem.category.id === products.category.id)
 
-    console.log(relatedProducts)
+    console.log(products)
 
     return (
         <div>
-            <Carousel>
-                <Carousel.Item className='carousel'>
-                    <img
-                        className="d-block w-100"
-                        src={products?.productImgs[0]}
-                        alt="First slide"
-                        id='carousel'
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={products?.productImgs[1]}
-                        alt="Second slide"
-                        id='carousel'
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={products?.productImgs[2]}
-                        alt="Third slide"
-                        id='carousel'
-                    />
-                </Carousel.Item>
-            </Carousel>
-            {relatedProducts.map(productItem=>(
+            <div className='detail'>
+                <Carousel className='cardcar'>
+                    <Carousel.Item className='carousel'>
+                        <img
+                            className="d-block w-100"
+                            src={products?.productImgs[0]}
+                            alt="First slide"
+                            id='carousel'
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={products?.productImgs[1]}
+                            alt="Second slide"
+                            id='carousel'
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={products?.productImgs[2]}
+                            alt="Third slide"
+                            id='carousel'
+                        />
+                    </Carousel.Item>
+                </Carousel>
+                <div className='infodetail'>
+                    <h1>
+                        {products.title}
+                    </h1>
+                    <p>
+                        {products.description}
+                    </p>
+                </div>
+            </div>
+
+            {relatedProducts.map(productItem => (
                 <li key={productItem.id}>
-                   <Link to={`/product/${productItem.id}`}>
-                   {productItem.title}
-                   </Link> 
+                    <Link to={`/product/${productItem.id}`}>
+                        {productItem.title}
+                    </Link>
                 </li>
             ))}
         </div>
