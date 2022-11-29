@@ -36,10 +36,9 @@ const Home = () => {
                     <Button key={categories.id} variant="primary" onClick={() => dispatch(filterProductsThunk(categories.id))}>{categories.name}</Button>
                 ))}
             </div>
-
             <InputGroup className="mb-3">
                 <Form.Control
-                    placeholder="Recipient's username"
+                    placeholder="Product"
                     aria-label="Recipient's username"
                     aria-describedby="basic-addon2
                     "

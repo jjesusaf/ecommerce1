@@ -25,32 +25,35 @@ const ProductDetail = () => {
     return (
         <div>
             <div className='detail'>
-                <Carousel className='cardcar'>
-                    <Carousel.Item className='carousel'>
-                        <img
-                            className="d-block w-100"
-                            src={products?.productImgs[0]}
-                            alt="First slide"
-                            id='carousel'
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={products?.productImgs[1]}
-                            alt="Second slide"
-                            id='carousel'
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={products?.productImgs[2]}
-                            alt="Third slide"
-                            id='carousel'
-                        />
-                    </Carousel.Item>
-                </Carousel>
+                <div className='cardcarousel'>
+                    <Carousel className='cardcar'>
+                        <Carousel.Item className='carousel'>
+                            <img
+                                className="d-block w-100"
+                                src={products?.productImgs[0]}
+                                alt="First slide"
+                                id='carousel'
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src={products?.productImgs[1]}
+                                alt="Second slide"
+                                id='carousel'
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src={products?.productImgs[2]}
+                                alt="Third slide"
+                                id='carousel'
+                            />
+                        </Carousel.Item>
+                    </Carousel>
+                </div>
+
                 <div className='infodetail'>
                     <h1>
                         {products.title}
