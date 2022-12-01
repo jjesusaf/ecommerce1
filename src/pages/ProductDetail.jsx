@@ -66,13 +66,16 @@ const ProductDetail = () => {
                         </Carousel.Item>
                     </Carousel>
                 </div>
-
                 <div className='infodetail'>
                     <h1>
                         {products?.title}
                     </h1>
                     <p>
                         {products?.description}
+                    </p>
+                    <p>
+                        Price: <br />
+                        $ {products?.price}
                     </p>
                     <input 
                     type="text"
@@ -83,7 +86,9 @@ const ProductDetail = () => {
                     </button>
                 </div>
             </div>
-
+            <h1>
+                Product Suggestions
+            </h1>
             {relatedProducts.map(productItem => (
                 <li key={productItem.id}>
                     <Link to={`/product/${productItem.id}`}>

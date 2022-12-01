@@ -140,13 +140,13 @@
 
 .detail{
   display: flex;
-  padding: 5rem;
   justify-content: space-evenly;
-  gap: 3rem;
+  padding: 1rem;
+  flex-wrap: wrap;
 }
 
 #carousel{
-    width: 70%;
+    width: 50%;
     aspect-ratio: 3/2;
     object-fit: contain;
 }
@@ -171,7 +171,26 @@
   width: 100%;
 }
 
+.infodetail{
+  width: 100%;
+  
+}
 
+.licart{
+  list-style: none;
+  padding: 1rem;
+}
+
+.productsincart{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #999;
+  width: 300px;
+}
+
+.btn-checkout{
+  margin: 1rem;
+}
 
 
 

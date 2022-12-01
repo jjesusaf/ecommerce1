@@ -25,18 +25,26 @@ const Sidebar = ({ handleClose, show }) => {
                 <Offcanvas.Body>
                     <div>
                         {cart.map(cart1 => (
-                            <li key={cart1.id}>
+                            <li className='licart' key={cart1.id}>
+                                <div className='productsincart'>
                                 <span>
-                                    {cart1.brand}
-                                </span> <br />
-                                <span>
-                                    {cart1.title}
+                                    {cart1?.brand}
                                 </span>
+                                <span>
+                                    {cart1?.title}
+                                </span>
+                                <span>
+                                    {cart1?.productsInCart?.quantity}
+                                </span>
+                                <span>
+                                    Total : $ {parseInt(cart1?.price) * cart1?.productsInCart?.quantity }
+                                </span>
+                                </div> 
                             </li>
                         ))}
                     </div>
                 </Offcanvas.Body>
-                <Button onClick={()=> dispatch(checkoutCartThunk())}>
+                <Button className='btn-checkout' onClick={()=> dispatch(checkoutCartThunk())}>
                     Checkout
                 </Button>
             </Offcanvas>

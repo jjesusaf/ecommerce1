@@ -9,7 +9,7 @@ import LoadingScreen from './components/LoadingScreen'
 import { useSelector } from 'react-redux'
 import ProtectedRoutes from './components/ProtectedRoutes'
 function App() {
-
+  
   const isLoading = useSelector(state => state.isLoading)
 
   return (
