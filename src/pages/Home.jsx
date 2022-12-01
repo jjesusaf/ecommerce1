@@ -10,6 +10,7 @@ import { filterProductsThunk } from '../store/slices/products.slice';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { filterHeadThunk } from '../store/slices/products.slice';
+import { Col, ListGroupItem, Row } from 'react-bootstrap';
 
 const Home = () => {
 
@@ -29,55 +30,63 @@ const Home = () => {
 
     return (
         <div>
-            <div className='btnsearch'>
-                {category.map(categories => (
-                    <Button key={categories.id} variant="primary" onClick={() => dispatch(filterProductsThunk(categories.id))}>{categories.name}</Button>
-                ))}
-            </div>
-            <InputGroup className="mb-3">
-                <Form.Control
-                    placeholder="Product"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2
+            <Row>
+                <Col lg={3}>
+                    <ListGroup>
+                        {category.map(categories => (
+                        <ListGroupItem 
+                        key={categories.id}  
+                        onClick={() => dispatch(filterProductsThunk(categories.id))}
+                        style={{cursor: 'pointer'}}>{categories.name}</ListGroupItem>
+                    ))}
+                    </ListGroup>
+                    <InputGroup className="mb-3">
+                        <Form.Control
+                            placeholder="Product"
+                            aria-label="Recipient's username"
+                            aria-describedby="basic-addon2
                     "
-                    value={inputSearch}
-                    onChange={e => setInputSearch(e.target.value)}
-                />
-                <Button variant="outline-secondary" id="button-addon2"
-                    onClick={() => dispatch(filterHeadThunk(inputSearch))}>
-                    Search
-                </Button>
-            </InputGroup>
-            <div className='cardli'>
-                {dataProducts.map(product => (
-                    <li key={product.id} className='lihome' >
-                        <div className='product-card'>
-                            <Link to={`/product/${product.id}`}>
-                                <div className='image'>
-                                    <img src={product.productImgs?.[0]} alt="" className='over' />
+                            value={inputSearch}
+                            onChange={e => setInputSearch(e.target.value)}
+                        />
+                        <Button variant="outline-secondary" id="button-addon2"
+                            onClick={() => dispatch(filterHeadThunk(inputSearch))}>
+                            Search
+                        </Button>
+                    </InputGroup>
+                </Col>
+                <Col lg={9}>
+                    <div className='cardli'>
+                        {dataProducts.map(product => (
+                            <li key={product.id} className='lihome' >
+                                <div className='product-card'>
+                                    <Link to={`/product/${product.id}`}>
+                                        <div className='image'>
+                                            <img src={product.productImgs?.[0]} alt="" className='over' />
+                                        </div>
+                                        <div className='info'>
+                                            <span className='brand'>
+                                            </span>
+                                            <strong>
+                                                {product.title}
+                                            </strong>
+                                            <span className='price'>
+                                                Price
+                                            </span>
+                                            <span className='amount'>
+                                                {product.price}
+                                            </span>
+                                        </div>
+                                    </Link>
+                                    <button className='card-button'>
+                                        Buy
+                                    </button>
                                 </div>
-                                <div className='info'>
-                                    <span className='brand'>
-                                    </span>
-                                    <strong>
-                                        {product.title}
-                                    </strong>
-                                    <span className='price'>
-                                        Price
-                                    </span>
-                                    <span className='amount'>
-                                        {product.price}
-                                    </span>
-                                </div>
-                            </Link>
-                            <button className='card-button'>
-                                Buy
-                            </button>
-                        </div>
-                    </li>
-                ))}
-            </div>
-
+                            </li>
+                        ))}
+                    </div>
+                </Col>
+            </Row>
         </div>
     );
 };

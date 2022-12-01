@@ -8,8 +8,9 @@ import NavBar from './components/NavBar'
 import LoadingScreen from './components/LoadingScreen'
 import { useSelector } from 'react-redux'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import { Container } from 'react-bootstrap'
 function App() {
-  
+
   const isLoading = useSelector(state => state.isLoading)
 
   return (
@@ -17,6 +18,7 @@ function App() {
       <HashRouter>
         <NavBar />
         {isLoading && <LoadingScreen />}
+        <Container className='my-4'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/product/:id' element={<ProductDetail />} />
@@ -25,6 +27,7 @@ function App() {
             <Route path='/purchase' element={<Purchase />} />
           </Route>
         </Routes>
+        </Container>
       </HashRouter>
     </div>
   )
