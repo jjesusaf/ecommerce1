@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getProductsThunk } from '../store/slices/products.slice';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
+import { createCartThunk } from '../store/slices/cart.slice';
 
 const ProductDetail = () => {
 
@@ -21,6 +22,18 @@ const ProductDetail = () => {
     const relatedProducts = productsList.filter(productItem => productItem.category.id === products.category.id)
 
     console.log(products)
+
+    const [quantity, setQuantity] = useState("")
+
+    const addProducts = () => {
+
+        const product = {
+            id: products.id,
+            quantity: quantity
+        }
+
+        dispatch(createCartThunk(product))
+    }
 
     return (
         <div>
@@ -56,11 +69,18 @@ const ProductDetail = () => {
 
                 <div className='infodetail'>
                     <h1>
-                        {products.title}
+                        {products?.title}
                     </h1>
                     <p>
-                        {products.description}
+                        {products?.description}
                     </p>
+                    <input 
+                    type="text"
+                    value={quantity}
+                    onChange={(e) =>setQuantity(e.target.value)} />
+                    <button onClick={addProducts}>
+                        Add product
+                    </button>
                 </div>
             </div>
 

@@ -24,8 +24,6 @@ const Home = () => {
             .then(res => setCategory(res.data.data.categories))
     }, [])
 
-    console.log(category)
-
     const dataProducts = useSelector(state => state.products)
 
 
@@ -73,7 +71,7 @@ const Home = () => {
                                 </div>
                             </Link>
                             <button className='card-button'>
-
+                                Buy
                             </button>
                         </div>
                     </li>

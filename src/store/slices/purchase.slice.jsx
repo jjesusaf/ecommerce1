@@ -20,6 +20,8 @@ export const getPurchaseThunk = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+
+
 export const { setPurchase } = purchaseSlice.actions;
 
 export default purchaseSlice.reducer;

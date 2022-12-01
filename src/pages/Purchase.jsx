@@ -12,12 +12,16 @@ const Purchase = () => {
 
     const purchase = useSelector(state => state.purchase)
 
-    console.log(purchase)
-
     return (
         <div>
-            <h1>Purchases</h1>
-
+            <h1>My purchases</h1>
+            <div className='purchases'>
+            {purchase.map(purchases=>(
+                <li key={purchases.id}>
+                    {purchases.cart?.products?.[0]?.title}
+                </li>
+            ))}
+            </div>
         </div>
     );
 };
