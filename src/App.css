@@ -177,6 +177,22 @@
   height: calc(100vh - 314px);
 }
 
+.cart{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cartQuantity{
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  border: 1px solid #999;
+}
+
+.cardSidebar{
+  margin: 1rem;
+}
+
 
 
 
