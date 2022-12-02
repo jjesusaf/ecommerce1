@@ -10,7 +10,7 @@ import { filterProductsThunk } from '../store/slices/products.slice';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { filterHeadThunk } from '../store/slices/products.slice';
-import { Col, ListGroupItem, Row } from 'react-bootstrap';
+import { ButtonGroup, Col, ListGroupItem, Row } from 'react-bootstrap';
 
 const Home = () => {
 
@@ -34,11 +34,11 @@ const Home = () => {
                 <Col lg={3}>
                     <ListGroup>
                         {category.map(categories => (
-                        <ListGroupItem 
-                        key={categories.id}  
-                        onClick={() => dispatch(filterProductsThunk(categories.id))}
-                        style={{cursor: 'pointer'}}>{categories.name}</ListGroupItem>
-                    ))}
+                            <ListGroupItem
+                                key={categories.id}
+                                onClick={() => dispatch(filterProductsThunk(categories.id))}
+                                style={{ cursor: 'pointer' }}>{categories.name}</ListGroupItem>
+                        ))}
                     </ListGroup>
                     <InputGroup className="mb-3">
                         <Form.Control
@@ -56,35 +56,22 @@ const Home = () => {
                     </InputGroup>
                 </Col>
                 <Col lg={9}>
-                    <div className='cardli'>
+                    <Row xs={1} md={3} className="g-4">
                         {dataProducts.map(product => (
-                            <li key={product.id} className='lihome' >
-                                <div className='product-card'>
-                                    <Link to={`/product/${product.id}`}>
-                                        <div className='image'>
-                                            <img src={product.productImgs?.[0]} alt="" className='over' />
-                                        </div>
-                                        <div className='info'>
-                                            <span className='brand'>
-                                            </span>
-                                            <strong>
-                                                {product.title}
-                                            </strong>
-                                            <span className='price'>
-                                                Price
-                                            </span>
-                                            <span className='amount'>
-                                                {product.price}
-                                            </span>
-                                        </div>
-                                    </Link>
-                                    <button className='card-button'>
-                                        Buy
-                                    </button>
-                                </div>
-                            </li>
+                            <Col key={product.id}>
+                                <Link to={`/product/${product.id}`}>
+                                    <Card>
+                                        <Card.Img variant="top" src={product.productImgs?.[0]} className='over' />
+                                        <Card.Body>
+                                            <Card.Title>{product.title}</Card.Title>
+                                            <Card.Text>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Link>
+                            </Col>
                         ))}
-                    </div>
+                    </Row>
                 </Col>
             </Row>
         </div>

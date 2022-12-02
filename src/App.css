@@ -95,9 +95,6 @@
   }
 }
 
-.lihome{
-  list-style: none;
-}
 
 .over{
     width: 70%;
@@ -151,35 +148,6 @@
     object-fit: contain;
 }
 
-.cardcar{
-  width: 600px;
-  height: 600px;
-}
-
-.mb-3{
-  padding: 2rem;
-}
-
-.cardcarousel{
-  width: 100%;
-}
-
-.infodetail{
-  width: 100%;
-  
-}
-
-.licart{
-  list-style: none;
-  padding: 1rem;
-}
-
-.productsincart{
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #999;
-  width: 300px;
-}
 
 .btn-checkout{
   margin: 1rem;

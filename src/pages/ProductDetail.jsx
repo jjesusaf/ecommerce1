@@ -5,6 +5,7 @@ import { getProductsThunk } from '../store/slices/products.slice';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 import { createCartThunk } from '../store/slices/cart.slice';
+import { Col, Row } from 'react-bootstrap';
 
 const ProductDetail = () => {
 
@@ -37,9 +38,9 @@ const ProductDetail = () => {
 
     return (
         <div>
-            <div className='detail'>
-                <div className='cardcarousel'>
-                    <Carousel className='cardcar'>
+            <Row>
+                <Col lg={6}>
+                    <Carousel>
                         <Carousel.Item className='carousel'>
                             <img
                                 className="d-block w-100"
@@ -65,27 +66,29 @@ const ProductDetail = () => {
                             />
                         </Carousel.Item>
                     </Carousel>
-                </div>
-                <div className='infodetail'>
-                    <h1>
-                        {products?.title}
-                    </h1>
-                    <p>
-                        {products?.description}
-                    </p>
-                    <p>
-                        Price: <br />
-                        $ {products?.price}
-                    </p>
-                    <input 
-                    type="text"
-                    value={quantity}
-                    onChange={(e) =>setQuantity(e.target.value)} />
-                    <button onClick={addProducts}>
-                        Add product
-                    </button>
-                </div>
-            </div>
+                </Col>
+                <Col lg={6}>
+                    <div className='infodetail'>
+                        <h1>
+                            {products?.title}
+                        </h1>
+                        <p>
+                            {products?.description}
+                        </p>
+                        <p>
+                            Price: <br />
+                            $ {products?.price}
+                        </p>
+                        <input
+                            type="text"
+                            value={quantity}
+                            onChange={(e) => setQuantity(e.target.value)} />
+                        <button onClick={addProducts}>
+                            Add product
+                        </button>
+                    </div>
+                </Col>
+            </Row>
             <h1>
                 Product Suggestions
             </h1>
