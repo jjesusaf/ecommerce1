@@ -5,7 +5,7 @@ import { getProductsThunk } from '../store/slices/products.slice';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 import { createCartThunk } from '../store/slices/cart.slice';
-import { Col, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const ProductDetail = () => {
 
@@ -22,7 +22,7 @@ const ProductDetail = () => {
 
     const relatedProducts = productsList.filter(productItem => productItem.category.id === products.category.id)
 
-    console.log(products)
+    console.log(relatedProducts)
 
     const [quantity, setQuantity] = useState("")
 
@@ -89,16 +89,30 @@ const ProductDetail = () => {
                     </div>
                 </Col>
             </Row>
-            <h1>
-                Product Suggestions
-            </h1>
-            {relatedProducts.map(productItem => (
-                <li key={productItem.id}>
-                    <Link to={`/product/${productItem.id}`}>
-                        {productItem.title}
-                    </Link>
-                </li>
-            ))}
+            <Container className='my-5' >
+                <h2>
+                    Product Suggestions
+                </h2>
+                <Container className='my-4'>
+                    <Row xs={2} md={4} lg={6} className="g-4">
+                        {relatedProducts.map(productItem => (
+                            <Col key={productItem.id}>
+                                <Link to={`/product/${productItem.id}`}>
+                                    <Card>
+                                        <Card.Img variant="top" src={productItem?.productImgs?.[0]} className='over2' />
+                                        <Card.Body>
+                                            <Card.Title>{productItem.title}</Card.Title>
+                                            <Card.Text>
+                                                Price: ${productItem.price}
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Link>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
+            </Container>
         </div>
     );
 };

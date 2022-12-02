@@ -103,44 +103,13 @@
 
 }
 
-.cardli{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: center;
-  gap: 1rem;
-  
-}
+.over2{
+  aspect-ratio: 3/2;
+  object-fit: contain;
 
-.product-card{
-  width: 300px;
-  height: 300px;
-  border: 1px solid #999;
-  padding: 2rem;
-  
-}
-
-.info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.image{
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 
-.detail{
-  display: flex;
-  justify-content: space-evenly;
-  padding: 1rem;
-  flex-wrap: wrap;
-}
 
 #carousel{
     width: 50%;
@@ -148,10 +117,39 @@
     object-fit: contain;
 }
 
+.cardHome{
+  padding: 1rem;
+}
+
+.titleHome{
+  color: #000000;
+  border-style: none;
+}
+
+.priceHome{
+  color: #000000;
+  text-decoration: none;
+}
 
 .btn-checkout{
   margin: 1rem;
 }
+
+.purchases{
+  display: flex;
+  justify-content: space-between;
+}
+
+.purchases>span{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.cardPurchase{
+  margin: 1rem;
+}
+
 
 
 

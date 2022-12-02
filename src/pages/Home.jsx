@@ -10,7 +10,7 @@ import { filterProductsThunk } from '../store/slices/products.slice';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { filterHeadThunk } from '../store/slices/products.slice';
-import { ButtonGroup, Col, ListGroupItem, Row } from 'react-bootstrap';
+import { ButtonGroup, Col, Container, ListGroupItem, Row } from 'react-bootstrap';
 
 const Home = () => {
 
@@ -40,32 +40,37 @@ const Home = () => {
                                 style={{ cursor: 'pointer' }}>{categories.name}</ListGroupItem>
                         ))}
                     </ListGroup>
-                    <InputGroup className="mb-3">
-                        <Form.Control
-                            placeholder="Product"
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2
-                    "
-                            value={inputSearch}
-                            onChange={e => setInputSearch(e.target.value)}
-                        />
-                        <Button variant="outline-secondary" id="button-addon2"
-                            onClick={() => dispatch(filterHeadThunk(inputSearch))}>
-                            Search
-                        </Button>
-                    </InputGroup>
                 </Col>
                 <Col lg={9}>
+                    <Container className='my-4'>
+                        <InputGroup className="mb-3">
+                            <Form.Control
+                                placeholder="Product"
+                                aria-label="Recipient's username"
+                                aria-describedby="basic-addon2
+                    "
+                                value={inputSearch}
+                                onChange={e => setInputSearch(e.target.value)}
+                            />
+                            <Button variant="outline-secondary" id="button-addon2"
+                                onClick={() => dispatch(filterHeadThunk(inputSearch))}>
+                                Search
+                            </Button>
+                        </InputGroup>
+                    </Container>
                     <Row xs={1} md={3} className="g-4">
                         {dataProducts.map(product => (
                             <Col key={product.id}>
                                 <Link to={`/product/${product.id}`}>
-                                    <Card>
+                                    <Card className='cardHome'>
                                         <Card.Img variant="top" src={product.productImgs?.[0]} className='over' />
                                         <Card.Body>
-                                            <Card.Title>{product.title}</Card.Title>
-                                            <Card.Text>
-                                            </Card.Text>
+                                            <Card.Title className='titleHome'>{product.title}</Card.Title>
+                                            <div>
+                                                <span className='priceHome'>
+                                                    Price: ${product.price}
+                                                </span>
+                                            </div>
                                         </Card.Body>
                                     </Card>
                                 </Link>
