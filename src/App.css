@@ -151,7 +151,12 @@
 }
 
 .footer{
-  background-color: rgb(70, 64, 64);
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(4, 96, 15);
 }
 
 .rs{
@@ -166,6 +171,10 @@
   color: #fff;
   font-size: 20px;
   padding: 2rem;
+}
+
+.login{
+  height: calc(100vh - 314px);
 }
 
 

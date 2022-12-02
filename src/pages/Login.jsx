@@ -28,7 +28,7 @@ const Login = () => {
     } 
 
     return (
-        <div>
+        <div className='login'>
             <h1>Login</h1>
             <Form onSubmit={handleSubmit(submit)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
