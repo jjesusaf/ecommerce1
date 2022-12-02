@@ -9,6 +9,7 @@ import LoadingScreen from './components/LoadingScreen'
 import { useSelector } from 'react-redux'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import { Container } from 'react-bootstrap'
+import Footer from './pages/Footer'
 function App() {
 
   const isLoading = useSelector(state => state.isLoading)
@@ -28,6 +29,7 @@ function App() {
           </Route>
         </Routes>
         </Container>
+        <Footer/>
       </HashRouter>
     </div>
   )

@@ -150,6 +150,27 @@
   margin: 1rem;
 }
 
+.footer{
+  background-color: rgb(70, 64, 64);
+}
+
+.rs{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer>h1{
+  text-align: center;
+  height: 200px;
+  color: #fff;
+  font-size: 20px;
+  padding: 2rem;
+}
+
+
+
+
 
 
 
